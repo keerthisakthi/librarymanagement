@@ -3,5 +3,164 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "library-management": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/library-management",
+      "sourceRoot": "projects/library-management/src",
+      "prefix": "kwp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/library-management",
+            "index": "projects/library-management/src/index.html",
+            "browser": "projects/library-management/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/library-management/tsconfig.app.json",
+            "assets": [
+              "projects/library-management/src/favicon.ico",
+              "projects/library-management/src/assets"
+            ],
+            "styles": [
+              "projects/library-management/src/styles.css"
+            ],
+            "scripts": [],
+            "server": "projects/library-management/src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "projects/library-management/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "library-management:build:production"
+            },
+            "development": {
+              "buildTarget": "library-management:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "library-management:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/library-management/tsconfig.spec.json",
+            "assets": [
+              "projects/library-management/src/favicon.ico",
+              "projects/library-management/src/assets"
+            ],
+            "styles": [
+              "projects/library-management/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "library-management-ui": {
+      "projectType": "library",
+      "root": "projects/library-management-ui",
+      "sourceRoot": "projects/library-management-ui/src",
+      "prefix": "kwp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/library-management-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/library-management-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/library-management-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/library-management-ui/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "library-management-smart": {
+      "projectType": "library",
+      "root": "projects/library-management-smart",
+      "sourceRoot": "projects/library-management-smart/src",
+      "prefix": "kwp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/library-management-smart/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/library-management-smart/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/library-management-smart/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/library-management-smart/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
   }
 }

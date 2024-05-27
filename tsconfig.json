@@ -8,6 +8,14 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
+    "paths": {
+      "library-management-smart": [
+        "./dist/library-management-smart"
+      ],
+      "library-management-ui": [
+        "./dist/library-management-ui"
+      ]
+    },
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

@@ -1,0 +1,21 @@
+.login-screen {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 30%;
+  justify-content: center;
+  height: 100vh;
+  padding: 10px;
+  background-color: #673ab7;
+}
+
+.login-label {
+  text-align: center;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .login-screen {
+    width: unset;
+  }
+}

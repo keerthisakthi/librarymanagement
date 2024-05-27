@@ -1,0 +1,11 @@
+<mat-toolbar>
+  <button mat-icon-button class="example-icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Keerthi's Library</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="primary" (click)="isLogin = !isLogin">
+    Login
+  </button>
+</mat-toolbar>
+<kwp-loginscreen [content]="isLogin"></kwp-loginscreen>
